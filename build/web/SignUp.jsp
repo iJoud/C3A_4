@@ -33,14 +33,14 @@
 
         <div class="login-box">
             <h2>Sign Up</h2>
-            <form>
+            <form name="AccountForm" action="AccountCreation.jsp" mathod="POST">
                 <div class="user-box1">
                     <input type="text" name="username" required maxlength="30">
                     <label>Username</label>
                 </div>
 
                 <div class="user-box1">
-                    <input type="password" name="pass" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required> 
+                    <input type="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" name="pass2" size="10" maxlength="20" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
                     <label>Password</label>
                 </div>
 
@@ -62,12 +62,12 @@
 
 
                 <div>
-                    <label class="Btype" for="birthday">Birthday </label>
+                    <label class="Btype" for="birthdate">Birthday </label>
                     <input type="date" id="birthday" name="birthday">
                 </div> 
                 <br/> 
                 <div> 
-                    <label class="Btype" for="blood"> Enter your blood type </label>
+                    <label class="Btype" for="bloodType"> Enter your blood type </label>
 
                     <select class="selectt" name="LastDonation"> 
                         <option value="A+">A+</option>			
@@ -80,17 +80,17 @@
                         <option value="O-">O-</option>			
                         <option value="Type" selected="selected">Type</option>    
                     </select> 
-
                 </div> 
 
-
+                <br/>
                 <div class="submit">
                     <a href="#">
                         <span></span>
                         <span></span>
                         <span></span>
                         <span></span>
-                        Submit
+
+                        <input id="dis" type="submit" name="sign up" value="Submit"/>
                     </a>
                 </div>
             </form>
@@ -103,6 +103,33 @@
         <div class="signature"> 
             <br/>
         </div>  
+
+
+        <script>
+
+
+            const userInput = document.querySelectorAll("input");
+
+            const label = document.querySelectorAll("label");
+
+
+
+            for (let index = 0; index < userInput.length; index++) {
+                const input = userInput[index];
+                input.addEventListener('input', function () {
+                    if (input.value.length > 0) {
+
+                        label[index].style.top = "-20px";
+                    } else if (input.value.length == 0 && label[index].style.top == "-20px") {
+                        label[index].style.top = "0";
+
+                    }
+                });
+
+            }
+
+        </script>
+
     </body> 
 </html>
 

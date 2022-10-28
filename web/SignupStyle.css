@@ -109,6 +109,25 @@ body {
     background-color: #FFE5E5
 }
 
+.wel{
+    margin-left: -100px;
+    margin-top: 5px;
+}
+.accountPic {
+    font-family: "Times New Roman", Times, serif;
+    border-radius: 50px;
+    border: none; 
+    padding: 5px 15px;
+    display: inline-block;
+    margin-top: 15px;
+    margin-left: 300px;
+    cursor: pointer;
+}
+
+.accountPic:hover {
+    background-color: #FFE5E5
+}
+
 .tableform{
     width:100%;
 }
@@ -244,7 +263,7 @@ input[type="date"] {
 }
 
 .login-box .user-box1 input:focus ~ label,
- .login-box .user-box1 input:valid ~ label
+.login-box .user-box1 input:valid ~ label
 {
     top: -20px;
     left: 0;
@@ -366,4 +385,21 @@ input[type="date"] {
 .submit {
     display: flex;
     justify-content: center;
+}
+
+#dis {
+    font-family: "Times New Roman", Times, serif;
+    border: none;
+    background: none;
+    position: relative;
+    display: inline-block;
+    color: #EF4D64;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    letter-spacing: 4px;
+    width: 90px;
+
 }
