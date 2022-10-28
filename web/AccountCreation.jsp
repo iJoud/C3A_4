@@ -43,11 +43,12 @@
 
             <img src="account.png" class="accountPic" alt="pic"/>  
             <a href=Account.html" class="wel">Welcome <%=username%> </a>
-            <div> 
-                <br>
-                <h1> Hi <%=username%> </h1>
-                <p>Your account have been created successfully</p>
-            </div>
+         </div>
+           
+            <div Style="height: 70vh; display: flex; flex-direction: column; align-items: center; justify-content: center;">      
+                <h2> Hi <%=username%> </h2> 
+                <p> Your account have been created successfully! </p> 
+            </div> 
 
             <%}
 
@@ -56,6 +57,7 @@
                 }
             %> 
 
-        </div>
+        
+            <!--put the code here-->
     </body>
 </html>

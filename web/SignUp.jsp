@@ -40,7 +40,7 @@
                 </div>
 
                 <div class="user-box1">
-                    <input type="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" name="pass2" size="10" maxlength="20" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
+                    <input type="password" name="password"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
                     <label>Password</label>
                 </div>
 
@@ -62,14 +62,14 @@
 
 
                 <div>
-                    <label class="Btype" for="birthdate">Birthday </label>
-                    <input type="date" id="birthday" name="birthday">
+                    <label class="Btype">Birthday </label>
+                    <input type="date" id="birthday" name="birthdate">
                 </div> 
                 <br/> 
                 <div> 
-                    <label class="Btype" for="bloodType"> Enter your blood type </label>
+                    <label class="Btype"> Enter your blood type </label>
 
-                    <select class="selectt" name="LastDonation"> 
+                    <select class="selectt" name="bloodType"> 
                         <option value="A+">A+</option>			
                         <option value="A-">A-</option>	
                         <option value="B+">B+</option>				
