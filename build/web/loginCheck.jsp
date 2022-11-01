@@ -27,7 +27,7 @@
                     if (rs.next()) {
                         session.setAttribute("username", username);
                         session.setAttribute("password", password);
-                        response.sendRedirect("Home.jsp");
+                        response.sendRedirect("index.html");
 
                     } else {
                         out.print("You are unauthorized user");

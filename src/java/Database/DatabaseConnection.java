@@ -26,7 +26,21 @@ public class DatabaseConnection {
             System.out.print("Connection ERROR");
         }
     }
-    
+     public int addInfo(String username, String password, String email, String id, String phoneNumber, String birthdate, String bloodType) {
+        sqlQuery = "insert into account(username, password, email, id, phoneNumber, birthdate, bloodType)values('" + username + "','" + password + "','" + email
+                + "','" + id + "','" + phoneNumber + "','" + birthdate + "','" + bloodType + "');";
+
+        int i = -1;
+        try {
+            Statement stmt = conn.createStatement();
+            i = stmt.executeUpdate(sqlQuery);
+
+        } catch (Exception e) {
+            //System.out.print(e);
+            e.printStackTrace();
+        }
+        return i;
+    }
         public ResultSet validateUsersinDB(String username,String password) {
         sqlQuery = "SELECT * FROM account WHERE username= '"+username+"' AND password= '"+password+"'";
         try {
