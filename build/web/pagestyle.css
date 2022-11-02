@@ -10,7 +10,6 @@ and open the template in the editor.
 
 
 #logo {
-
     width: 120px;
     height: 120px;
     margin-top: -35px;
@@ -23,16 +22,15 @@ and open the template in the editor.
     border: none;
     float: right;
     font-family: "Times New Roman", Times, serif;
-    color: white;
+    color: black;
     display: inline-block;
     cursor: pointer;
     font-size: 15px;
     font-weight: 500;
-    height: 35px;
-    width:90px;
+    height: 50px;
+    width:100px;
     margin: 10px;
     padding: 10px 16px;
-    position: auto;
     text-align: center;
     text-decoration: none;
     position:relative;
@@ -163,5 +161,7 @@ and open the template in the editor.
                     font-weight: bold;
                     margin-bottom: 20px;
                 }
+                
+                
 
            

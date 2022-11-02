@@ -33,6 +33,10 @@
                 String birthdate = request.getParameter("birthdate");
                 String bloodType = request.getParameter("bloodType");
 
+                // to use it when adding posts
+                session.setAttribute("userID", id);
+                
+                
                 Database.DatabaseConnection connection = new Database.DatabaseConnection();
 
                 if (connection != null) {
