@@ -12,6 +12,7 @@
         <title>Sign up Form</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="SignupStyle.css" rel="stylesheet"/>
+         <link href="pagestyle.css" rel="stylesheet"/>
     </head>
 
     <body>
@@ -21,13 +22,12 @@
             <a href="process.html">Donation Requests</a>
             <a href="RequirmentQuiz.html">Search for Donors</a>
             <a href="book.html">About Us</a>
-            <button class="btn" type="button">Login</button>
-            <button class="btn" type="button">Sign up</button>
+           
         </div>
 
         <div> 
             <p id="welcome">Create new account<span id="dot">.</span> </p> 
-            <p id="already">Already a member? <a href=""> Login</a> </p> 
+            <p id="already">Already a member? <a href="login.jsp"> Login</a> </p> 
         </div> 
 
 
@@ -99,11 +99,21 @@
         <div>
             <img id="homepagephoto" src="Homepage.png" alt="homepage"/>
         </div> 
+    <br /><br /><br /><br /><br /><br /><br />
+        <br /><br /><br /><br /><br /><br /><br />
+         
+<footer class="footer-distributed">
+        <div class="footer-left">
+                <p class="footer-links">
+                    <a href="Index.html">Home</a>
+                    <a href="process.html">Donation Requests</a>
+                    <a href="RequirmentQuiz.html">Search for Donors</a>
+                    <a href="book.html">About Us</a>	   
+                </p>
 
-        <div class="signature"> 
-            <br/>
-        </div>  
 
+            </div>
+        </footer>
 
         <script>
 

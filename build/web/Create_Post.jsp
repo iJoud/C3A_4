@@ -9,13 +9,14 @@
 <html>
     <head>
         <link rel="stylesheet" href="CSS/Create_Post.css">
+         <link rel="stylesheet" href="pagestyle.css">
         <script defer src="JavaScript/Create_Post.js"></script>
     </head>
 
     <body>
 
         <div class="topnav">
-            <img src="Images/Logo.jpg" alt="logo" height="80" width="100" class="logo">
+            <img src="Logo.jpg" alt="logo" id="logo">
             <a href="Index.html">Home</a>
             <a href="process.html">Donation Requests</a>
             <a href="RequirmentQuiz.html">Search for Donors</a>
@@ -47,7 +48,7 @@
             if (session.getAttribute("CurrentUser") == null){%>
                 <div class="hideCreation">
                     <h1>You Are Not Authorized to Create a Post</h1>
-                    <h4>You Should <a href="">Sign up</a> to Create a Post, or <a href="">login</a> if You Already Have an Account.</h1>
+                    <h4>You Should <a href="SignUp.jsp">Sign up</a> to Create a Post, or <a href="login.jsp">login</a> if You Already Have an Account.</h1>
                 </div>
 
                 <%
