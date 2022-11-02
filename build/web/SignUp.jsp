@@ -19,7 +19,7 @@
             <img id="logo" src="Logo.jpg" alt="logo">
             <a href="Index.html">Home</a>
             <a href="process.html">Donation Requests</a>
-            <a href="RequirmentQuiz.html">Search for Donors</a>
+            <a href="Create_Post.jsp">Search for Donors</a>
             <a href="book.html">About Us</a>
             <button class="btn" type="button">Login</button>
             <button class="btn" type="button">Sign up</button>

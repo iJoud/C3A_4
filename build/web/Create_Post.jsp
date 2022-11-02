@@ -17,8 +17,8 @@
         <div class="topnav">
             <img src="Images/Logo.jpg" alt="logo" height="80" width="100" class="logo">
             <a href="Index.html">Home</a>
-            <a href="process.html">Donation Requests</a>
-            <a href="RequirmentQuiz.html">Search for Donors</a>
+            <a href="View_Post.jsp">Donation Requests</a>
+            <a href="Create_Post.jsp">Search for Donors</a>
             <a href="book.html">About Us</a>
 
             <% if (session.getAttribute("CurrentUser") == null){ %>
@@ -33,7 +33,7 @@
         </div>
         <div class="Header">
             <h1>Create Blood Donation Request Post</h1>
-            <div class="simple-text"> The Post will be Published on The Website, and Donors Will Then Start Contact You.
+            <div class="simple-text"> The Post will be Published on The Website, and Donors Will Then Start Contact You Via Your Email.
             </div>
         </div>
 
@@ -98,11 +98,8 @@
                             <option value="O-">O-</option>
                         </select>
                     </div>
-                    <%
-        String postFilled = "Filled";
-        session.setAttribute("postFilled", postFilled);
-                    %>
-
+                    <input type="text" name="hiddenInput" id="hiddenInput" hidden  value="">
+                    
                     <div class="buttons">
                         <button type="submit">Create</button>
                         <button type="reset">Clear</button>

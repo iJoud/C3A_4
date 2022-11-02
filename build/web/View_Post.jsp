@@ -21,11 +21,32 @@
     </head>
 
     <body>
+        
+        <%
+            /* For Filtering */
+            
+            String filterCity = null;
+            String filterDonationType = null;
+            String filterBloodType = null;
+
+            
+             if (request.getParameter("dropdownCity")!=null){
+             filterCity = (String)request.getParameter("dropdownCity");
+             out.print("<h1> --> "+filterCity+"</h1>");
+             }
+             if (request.getParameter("dropdownBloodType")!=null){
+             filterBloodType = (String)request.getParameter("dropdownBloodType");
+             }
+             if (request.getParameter("dropdownBloodDonationType")!=null){
+             filterDonationType = (String)request.getParameter("dropdownBloodDonationType");
+             }
+
+        %>
+        
         <%
 
         int isPosted = -10;
-
-        String filled = (String)session.getAttribute("postFilled");
+        String filled = (String) request.getParameter("hiddenInput");
         
         Database.DatabaseConnection connection = new Database.DatabaseConnection();
 
@@ -58,13 +79,21 @@
         %>
 
         <div class="topnav">
-            <img src="Logo.jpg" alt="logo" height="80" width="100" class="logo">
+            <img src="Images/Logo.jpg" alt="logo" height="80" width="100" class="logo">
             <a href="Index.html">Home</a>
-            <a href="process.html">Donation Requests</a>
-            <a href="RequirmentQuiz.html">Search for Donors</a>
+            <a href="View_Post.jsp">Donation Requests</a>
+            <a href="Create_Post.jsp">Search for Donors</a>
             <a href="book.html">About Us</a>
+
+            <% if (session.getAttribute("CurrentUser") == null){ %>
             <button class="btn" type="button">Login</button>
-            <button class="btn" type="button">Sign up</button>
+            <button class="btn" type="button" >Sign up</button>
+
+            <% } else { %>
+            <img src="account.png" class="accountPic" alt="pic"/>  
+            <a href=Account.html" class="wel">Welcome <%=session.getAttribute("CurrentUser")%> </a>
+            <% } %>
+
         </div>
 
         <div class="Header">
@@ -87,31 +116,34 @@
 
             <div class="SearchDiv">
                 <h2 style="color:#e94364c0">Filter Results</h2>
+                
+                <form name="filter" action="View_Post.jsp" method="post">
+                    
                 <ul class="searchList">
                     <li>Blood Type &dtrif;
-                        <ul class="dropdownBloodType">
-                            <li><input type="radio" name="dropdownBloodType" value="ABp" /><span>AB+</span></li>
-                            <li><input type="radio" name="dropdownBloodType" value="ABm" /><span>AB-</span></li>
-                            <li><input type="radio" name="dropdownBloodType" value="Ap" /><span>A+</span></li>
-                            <li><input type="radio" name="dropdownBloodType" value="Am" /><span>A-</span></li>
-                            <li><input type="radio" name="dropdownBloodType" value="Bm" /><span>B-</span></li>
-                            <li><input type="radio" name="dropdownBloodType" value="Bp" /><span>B+</span></li>
-                            <li><input type="radio" name="dropdownBloodType" value="Op" /><span>O+</span></li>
-                            <li><input type="radio" name="dropdownBloodType" value="Om" /><span>O-</span></li>
+                        <ul class="dropdownBloodType1">
+                            <li><input type="radio" name="dropdownBloodType" value="AB+"><span>AB+</span></li>
+                            <li><input type="radio" name="dropdownBloodType" value="AB-"><span>AB-</span></li>
+                            <li><input type="radio" name="dropdownBloodType" value="A+"><span>A+</span></li>
+                            <li><input type="radio" name="dropdownBloodType" value="A-"><span>A-</span></li>
+                            <li><input type="radio" name="dropdownBloodType" value="B-"><span>B-</span></li>
+                            <li><input type="radio" name="dropdownBloodType" value="B+"><span>B+</span></li>
+                            <li><input type="radio" name="dropdownBloodType" value="O+"><span>O+</span></li>
+                            <li><input type="radio" name="dropdownBloodType" value="O-"><span>O-</span></li>
                         </ul>
                     </li>
                     <li>Blood Donation Type &dtrif;
-                        <ul class="dropdownBloodDonationType">
-                            <li><input type="radio" name="dropdownBloodDonationType" value="Whole_blood" /><span>Whole blood</span></li>
-                            <li><input type="radio" name="dropdownBloodDonationType" value="Platelet" /><span>Platelet</span></li>
-                            <li><input type="radio" name="dropdownBloodDonationType" value="Plasma" /><span>Plasma</span></li>
+                        <ul class="dropdownBloodDonationType1">
+                            <li><input type="radio" name="dropdownBloodDonationType" value="Whole Blood"><span>Whole blood</span></li>
+                            <li><input type="radio" name="dropdownBloodDonationType" value="Platelet"><span>Platelet</span></li>
+                            <li><input type="radio" name="dropdownBloodDonationType" value="Plasma"><span>Plasma</span></li>
                         </ul>
                     </li>
 
                     <li>City &dtrif;
-                        <ul class="dropdownCity">
+                        <ul class="dropdownCity1">
                             <%
-                                        try {
+                    try {
 
                     String[] allcities = new String[200];
                     ResultSet r = connection.getPost();
@@ -127,23 +159,41 @@
             while(i<uniquecity.length){            
                 if (uniquecity[i]!=null){
                             %>
-                            <li><input type="radio" name="dropdownCity" value="city" /><span><%=uniquecity[i]%></span></li>
-                                <% }
-                                i++;
-                                } 
-                                 } catch (Exception ex) { }
-%>
+                            <li><input type="radio" name="dropdownCity"/><span><%=uniquecity[i]%></span></li>
+                                    <% }
+                                    i++;
+                                    } 
+                                     } catch (Exception ex) { }
+                                    %>
 
                         </ul>
                     </li>
                 </ul>
                 <br><br>
-                <button class="filter" >Filter</button>
+                <button type="submit" class="filter">Filter</button>
+                </form>
             </div>
 
             <div class="Posts" class="g-4" style="width: 60%">
 
-                <% while (rs.next()) { %>
+                <% 
+
+                    while (rs.next()) { 
+                    
+                    if (filterCity!=null && !rs.getString("city").equals(filterCity)){
+                    continue;
+                    }
+
+                    if (filterBloodType!=null && !rs.getString("bloodType").equals(filterBloodType)){
+                    continue;
+                    }
+
+                    if (filterDonationType!=null && !rs.getString("donationType").equals(filterDonationType)){
+                    continue;
+                    }
+
+                %>
+                    
                 <div class="col-12">
                     <div class="post text-end bg-white" post-id="70">
 
@@ -180,7 +230,7 @@
                             <ul
                                 class="list-unstyled mb-0 d-flex flex-row-reverse flex-wrap position-relative justify-content-center">
                                 <li>
-                                    <button>Donate</button>
+                                    <a href = "mailto: <%=rs.getString("email")%>"><button>Donate</button></a>
                                 </li>
                             </ul>
 
@@ -190,6 +240,11 @@
                 </div>
                 <% 
                     } // While-loop end
+
+                    request.removeAttribute("dropdownCity");
+                    request.removeAttribute("dropdownBloodDonationType");
+                    request.removeAttribute("dropdownBloodType");
+
                 %> 
                 <!-- ################################################################################################################ -->
 
@@ -198,11 +253,6 @@
         </div>
     </div>
 
-    <%
-        String postFilled = null;
-        session.setAttribute("postFilled", postFilled);
-
-    %>
 
 </body>
 
