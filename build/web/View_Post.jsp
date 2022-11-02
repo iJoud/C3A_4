@@ -26,7 +26,6 @@
         int isPosted = -10;
 
         String filled = (String)session.getAttribute("postFilled");
-
         
         Database.DatabaseConnection connection = new Database.DatabaseConnection();
 
@@ -41,7 +40,6 @@
 
                 String userid = (String)session.getAttribute("userID");
                 String currentDate = (String)java.time.LocalDate.now().toString();
-//Please I'll be appreciated if any one can help me to find a plasma A plus donor. 
                 
                 
                
@@ -80,9 +78,7 @@
             } else if (isPosted != -10){
                 out.print("<p>Error Occured, Your Post Has not Been Posted.</p>");
             }
-            
-
-                
+                            
             %>
 
         </div>

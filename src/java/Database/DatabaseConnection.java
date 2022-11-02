@@ -1,10 +1,6 @@
 package Database;
 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintStream;
+import java.io.*;
 import java.sql.*;
 import java.util.Arrays;
 import java.util.logging.Level;

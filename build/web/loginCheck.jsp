@@ -30,6 +30,8 @@
                         
                         // to use it when adding posts
                         session.setAttribute("userID", rs.getString("id"));
+                        // to use it in other pages
+                        session.setAttribute("CurrentUser", request.getParameter("UserName"));
                         
                         response.sendRedirect("Home.jsp");
 
