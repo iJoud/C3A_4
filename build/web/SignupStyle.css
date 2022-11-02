@@ -43,7 +43,6 @@ body {
 
 
 .topnav button{
-    background-color: #FC7091;
     border-radius: 15px;
     border: none;
     float: right;
@@ -113,6 +112,10 @@ body {
 
 .btn:hover {
     background-color: #FFE5E5
+}
+
+.sign{
+     background-color: #FFE5E5
 }
 
 .wel{

@@ -1,6 +1,6 @@
 <%-- 
     Document   : Home
-    Created on : Oct 30, 2022, 11:11:38 PM
+    Created on : Oct 30, 2022, 3:02:40 AM
     Author     : manar
 --%>
 
@@ -12,6 +12,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Welcome</h1>
+        <h2>Log out</h2>
+        <br/> <a href="LogOut.jsp"> log out </a>
     </body>
 </html>

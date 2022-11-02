@@ -21,14 +21,17 @@
                 <a href="process.html">Donation Requests</a>
                 <a href="RequirmentQuiz.html">Search for Donors</a>
                 <a href="book.html">About Us</a>
-                <button class="btn" type="button">Login</button>
-                <button class="btn" type="button">Sign up</button>
+                <button class="loginn" type="button">Login</button>
+                <button onclick="location.href='SignUp.jsp'" class="btn" type="button">Sign up</button>
             </nav>
         </header>
         <!-- ---------------  Body section  ---------------  -->
         <div class="section1">
             <img class="loginimg" src="login.png" alt="user" /> 
-       <section class="login" id='login'>
+
+
+
+            <section class="login" id='login'>
                 <div class="head">
                     <h1 >Welcome, login to your account</h1>
                 </div>
@@ -36,8 +39,8 @@
                 <div class='form'>
                     <form name="login" action="loginCheck.jsp" method="POST">
                        
-                        <input type="text" placeholder='Username' class='text' name="UserName" required /><br>
-                        <input type="password" placeholder='••••••••••••••' class='password'  name="Password" required /><br><br>
+                        <input type="text" placeholder='username' class='text' id='username' name="username" required /><br>
+                        <input type="password" placeholder='••••••••••••••' class='password' id="password" name="password" required /><br><br>
                         <input type="radio" id="remmember" name="remmember" value="1"/><label style="font-size: 20px;"for="remmember">Remember me</label>
                         <a href="#" class='forgot'>Forgot password?</a>
                         <br><br><br><br>
@@ -66,6 +69,8 @@
 
 
             </div>
+
+
         </footer>
     </body>
 </html>

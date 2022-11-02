@@ -1,43 +1,55 @@
 package Database;
 
-import java.io.*;
 import java.sql.*;
-import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
  *
- * @author manar
+ * @author Elaf
  */
 public class DatabaseConnection {
 
-    String serverURL = "jdbc:mysql://localhost:3306/lifequest?useSSL=false";
+    String url = "jdbc:mysql://localhost:3306/lifequest?useSSL=false";
     String username = "C3A_4";
     String password = "123456";
-    Connection conn = null;
-    PreparedStatement preparedST = null;
-    ResultSet RS = null;
-    String sqlQuery = "";
+    Connection connection = null;
+    PreparedStatement preparedState = null;
+    ResultSet resultSet = null;
+    String query = "";
 
     public DatabaseConnection() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            conn = DriverManager.getConnection(serverURL, username, password);
-        } catch (SQLException ex) {
+            connection = DriverManager.getConnection(url, username, password);
         } catch (ClassNotFoundException ex) {
-            System.out.print("Connection ERROR");
+            Logger.getLogger(DatabaseConnection.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(DatabaseConnection.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
+    public ResultSet information() {
+        query = "SELECT * FROM account;";
+
+        try {
+            preparedState = connection.prepareStatement(query);
+            resultSet = preparedState.executeQuery();
+        } catch (SQLException ex) {
+            Logger.getLogger(DatabaseConnection.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return resultSet;
+
+    }
+
     public int addInfo(String username, String password, String email, String id, String phoneNumber, String birthdate, String bloodType) {
-        sqlQuery = "insert into account(username, password, email, id, phoneNumber, birthdate, bloodType)values('" + username + "','" + password + "','" + email
+        query = "insert into account(username, password, email, id, phoneNumber, birthdate, bloodType)values('" + username + "','" + password + "','" + email
                 + "','" + id + "','" + phoneNumber + "','" + birthdate + "','" + bloodType + "');";
 
         int i = -1;
         try {
-            Statement stmt = conn.createStatement();
-            i = stmt.executeUpdate(sqlQuery);
+            Statement stmt = connection.createStatement();
+            i = stmt.executeUpdate(query);
 
         } catch (Exception e) {
             //System.out.print(e);
@@ -46,72 +58,28 @@ public class DatabaseConnection {
         return i;
     }
 
-    public int addPost(String uid, String bloodType, String donationType,
-            String city, String hospital, String postBody, String date) {
-        sqlQuery = "insert into post(uid, bloodType, donationType, city, hospital, postBody, date)values('"
-                + uid + "','" + bloodType + "','" + donationType + "','" + city
-                + "','" + hospital + "','" + postBody + "','" + date + "');";
+    public ResultSet getUserInformation(String username, String password) {
 
-        int i = -1;
+        // query = "SELECT * FROM form WHERE username='Ealoufi0015' AND password='12345678';";
+        query = "SELECT * FROM form WHERE username='" + username + "' AND password='" + password + "';";
         try {
-            Statement statement = conn.createStatement();
-            i = statement.executeUpdate(sqlQuery);
-        } catch (Exception e) {
-            e.getMessage();
-        }
-        return i;
-    }
+            preparedState = connection.prepareStatement(query);
+            resultSet = preparedState.executeQuery();
 
-    public ResultSet getPost() {
-        sqlQuery = "SELECT post.*, account.* FROM post INNER JOIN account ON (account.id=post.uid);";
-
-//                "insert into post(uid, bloodType, donationType, city, hospital, postBody, date)values('"
-//                + uid + "','" + bloodType + "','" + donationType + "','" + city
-//                + "','" + hospital + "','" + postBody + "','" + date + "');";
-//        
-//        SELECT a.id, a.name, a.num, b.date, b.roll
-//FROM a
-//INNER JOIN b ON a.id=b.id;
-//        sqlQuery = "SELECT * FROM account WHERE username= '" + username + "' AND password= '" + password + "'";
-        try {
-            preparedST = conn.prepareStatement(sqlQuery);
-            RS = preparedST.executeQuery();
         } catch (SQLException ex) {
-            ex.getStackTrace();
-        }
-        return RS;
-    }
+            System.out.println("***User does not not exist***");
 
-    public ResultSet validateUsersinDB(String username, String password) {
-        sqlQuery = "SELECT * FROM account WHERE username= '" + username + "' AND password= '" + password + "'";
+        }
+        return resultSet;
+
+    }
+    
+    public void close() {
         try {
-            preparedST = conn.prepareStatement(sqlQuery);
-            RS = preparedST.executeQuery();
+            connection.close();
         } catch (SQLException ex) {
-            ex.getStackTrace();
+            Logger.getLogger(DatabaseConnection.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return RS;
     }
-
-    public ResultSet getUsers() {
-        sqlQuery = "SELECT * FROM account;";
-        try {
-            preparedST = conn.prepareStatement(sqlQuery);
-            RS = preparedST.executeQuery();
-        } catch (SQLException ex) {
-            ex.getStackTrace();
-        }
-        return RS;
-    }
-
-//    public static void main(String[] args) {
-//        try {
-//            DatabaseConnection c = new DatabaseConnection();
-//
-//        } catch (SQLException ex) {
-//            Logger.getLogger(DatabaseConnection.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        
-//    }
-
+    
 }
