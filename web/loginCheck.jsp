@@ -15,24 +15,18 @@
     <body>
         <%
 
-            String username = request.getParameter("UserName");
-            String password = request.getParameter("Password");
+            String username = request.getParameter("username");
+            String password = request.getParameter("password");
 
             if (username != null && username.length() >= 4) {
                 if (password != null && password.length() >= 4) {
 
                     Database.DatabaseConnection connection = new Database.DatabaseConnection();
-                    ResultSet rs = connection.validateUsersinDB(username, password);
+                    ResultSet rs = connection.getUserInformation(username, password);
 
                     if (rs.next()) {
                         session.setAttribute("username", username);
                         session.setAttribute("password", password);
-                        
-                        // to use it when adding posts
-                        session.setAttribute("userID", rs.getString("id"));
-                        // to use it in other pages
-                        session.setAttribute("CurrentUser", request.getParameter("UserName"));
-                        
                         response.sendRedirect("Home.jsp");
 
                     } else {

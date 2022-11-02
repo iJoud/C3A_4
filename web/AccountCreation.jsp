@@ -25,7 +25,6 @@
             <a href="book.html">About Us</a>
 
             <%
-
                 String username = request.getParameter("username");
                 String password = request.getParameter("password");
                 String email = request.getParameter("email");
@@ -34,11 +33,6 @@
                 String birthdate = request.getParameter("birthdate");
                 String bloodType = request.getParameter("bloodType");
 
-                // to use it when adding posts
-                session.setAttribute("userID", id);
-                // to use it in other pages
-                session.setAttribute("CurrentUser", request.getParameter("username"));
-                
                 Database.DatabaseConnection connection = new Database.DatabaseConnection();
 
                 if (connection != null) {

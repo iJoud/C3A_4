@@ -1,14 +1,12 @@
 package Database;
 
-import java.io.*;
 import java.sql.*;
-import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
  *
- * @author manar
+ * @author Elaf
  */
 public class DatabaseConnection {
 
@@ -65,14 +63,6 @@ public class DatabaseConnection {
     public ResultSet getPost() {
         sqlQuery = "SELECT post.*, account.* FROM post INNER JOIN account ON (account.id=post.uid);";
 
-//                "insert into post(uid, bloodType, donationType, city, hospital, postBody, date)values('"
-//                + uid + "','" + bloodType + "','" + donationType + "','" + city
-//                + "','" + hospital + "','" + postBody + "','" + date + "');";
-//        
-//        SELECT a.id, a.name, a.num, b.date, b.roll
-//FROM a
-//INNER JOIN b ON a.id=b.id;
-//        sqlQuery = "SELECT * FROM account WHERE username= '" + username + "' AND password= '" + password + "'";
         try {
             preparedST = conn.prepareStatement(sqlQuery);
             RS = preparedST.executeQuery();
@@ -114,4 +104,13 @@ public class DatabaseConnection {
 //        
 //    }
 
+
+    public void close() {
+        try {
+            conn.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(DatabaseConnection.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
 }

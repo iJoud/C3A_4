@@ -21,43 +21,49 @@
             <a href="process.html">Donation Requests</a>
             <a href="RequirmentQuiz.html">Search for Donors</a>
             <a href="book.html">About Us</a>
-            <button class="btn" type="button">Login</button>
-            <button class="btn" type="button">Sign up</button>
+            <button onclick="location.href='login.jsp'" class="btn" type="button">Login</button>
+            <button class="sign" type="button">Sign up</button>
         </div>
 
         <div> 
             <p id="welcome">Create new account<span id="dot">.</span> </p> 
-            <p id="already">Already a member? <a href=""> Login</a> </p> 
+            <p id="already">Already a member? <a href="login.jsp"> Login</a> </p> 
         </div> 
 
 
         <div class="login-box">
             <h2>Sign Up</h2>
+            <div class="Form-Message-Error"> </div> 
             <form name="AccountForm" action="AccountCreation.jsp" mathod="POST">
                 <div class="user-box1">
                     <input type="text" name="username" required maxlength="30">
                     <label>Username</label>
+                      <div class="Form-Input-Error"> </div> 
                 </div>
 
                 <div class="user-box1">
                     <input type="password" name="password"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
                     <label>Password</label>
+                     <div class="Form-Input-Error"> </div> 
                 </div>
 
                 <div class="user-box1">
                     <input type="email" name="email" maxlength="50" required> 
                     <label>Email</label>
+                     <div class="Form-Input-Error"> </div> 
                 </div>
 
                 <div class="user-box1">
                     <input type="text" name="id" pattern="[0-9]{10}" required > 
                     <label>National ID</label> 
+                     <div class="Form-Input-Error"> </div> 
                 </div>
 
 
                 <div class="user-box1">
                     <input type="tel" name="phoneNumber" pattern="(05)?[0,5,3,9,4,6][0-9]{7}" required>
                     <label>Phone number</label>
+                     <div class="Form-Input-Error"> </div> 
                 </div>
 
 
