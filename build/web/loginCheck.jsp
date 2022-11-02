@@ -27,6 +27,12 @@
                     if (rs.next()) {
                         session.setAttribute("username", username);
                         session.setAttribute("password", password);
+                        
+                        // to use it when adding posts
+                        session.setAttribute("userID", rs.getString("id"));
+                        // to use it in other pages
+                        session.setAttribute("CurrentUser", request.getParameter("UserName"));
+                        
                         response.sendRedirect("Home.jsp");
 
                     } else {
