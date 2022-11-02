@@ -21,7 +21,8 @@
                 <a href="process.html">Donation Requests</a>
                 <a href="RequirmentQuiz.html">Search for Donors</a>
                 <a href="book.html">About Us</a>
-               
+                <button class="btn" type="button">Login</button>
+                <button class="btn" type="button">Sign up</button>
             </nav>
         </header>
         <!-- ---------------  Body section  ---------------  -->
@@ -42,7 +43,7 @@
                         <br><br><br><br>
 
                         <input class="btn-login" type="submit" value="Login" name="Submit" />
-                        <p id="account"> Don't have an account? <a href="SignUp.jsp">Sign up </a> </p> 
+                        <p id="account"> Don't have an account? <a href="">Sign up </a> </p> 
 
                     </form>
                 </div>

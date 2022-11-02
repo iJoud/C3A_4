@@ -6,6 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.sql.*;
+import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -107,21 +108,14 @@ public class DatabaseConnection {
         return RS;
     }
 
-    public static void main(String[] args) {
-        try {
-            DatabaseConnection c = new DatabaseConnection();
-            
-            ResultSet r = c.getPost();
-            
-            while(r.next()){
-                System.out.println(r.getString("username"));
-                System.out.println(r.getString("date"));
-                System.out.println(r.getString("donationType"));
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(DatabaseConnection.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-    }
+//    public static void main(String[] args) {
+//        try {
+//            DatabaseConnection c = new DatabaseConnection();
+//
+//        } catch (SQLException ex) {
+//            Logger.getLogger(DatabaseConnection.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        
+//    }
 
 }

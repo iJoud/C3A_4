@@ -21,12 +21,13 @@
             <a href="process.html">Donation Requests</a>
             <a href="RequirmentQuiz.html">Search for Donors</a>
             <a href="book.html">About Us</a>
-           
+            <button class="btn" type="button">Login</button>
+            <button class="btn" type="button">Sign up</button>
         </div>
 
         <div> 
             <p id="welcome">Create new account<span id="dot">.</span> </p> 
-            <p id="already">Already a member? <a href="login.jsp"> Login</a> </p> 
+            <p id="already">Already a member? <a href=""> Login</a> </p> 
         </div> 
 
 
