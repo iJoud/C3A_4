@@ -50,13 +50,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     color: black;
 }
 
-.accountPic {
-    float: left;
-    padding: 1px 1px;
-    height: 40px;
-    margin-top: 20px;
-}
-
 .topnav {
     overflow: hidden;
 }
@@ -65,13 +58,17 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     margin-top: -1px;
 }
 .accountPic {
+    float: left;
+    padding: 1px 1px;
+    height: 40px;
+    margin-top: 20px;
     font-family: "Times New Roman", Times, serif;
     border-radius: 50px;
     border: none;
-    padding: 5px 15px;
+    /*padding: 5px 15px;*/
     display: inline-block;
     margin-top: 15px;
-    margin-left: 190px;
+    margin-left: 390px;
     cursor: pointer;
 }
 
@@ -288,8 +285,9 @@ small{
 }
 
 .logo{
-    right: 885px;
+    right: 90%;
     position: absolute;
+    margin-top: -10px;
 }
 
 .hideCreation {

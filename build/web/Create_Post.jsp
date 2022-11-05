@@ -17,8 +17,8 @@
         <div class="topnav">
             <img src="Images/Logo.jpg" alt="logo" height="80" width="100" class="logo">
             <a href="Index.html">Home</a>
-            <a href="process.html">Donation Requests</a>
-            <a href="RequirmentQuiz.html">Search for Donors</a>
+            <a href="View_Post.jsp">Donation Requests</a>
+            <a href="Create_Post.jsp">Search for Donors</a>
             <a href="book.html">About Us</a>
 
             <% if (session.getAttribute("CurrentUser") == null){ %>
@@ -33,27 +33,23 @@
         </div>
         <div class="Header">
             <h1>Create Blood Donation Request Post</h1>
-            <div class="simple-text"> The Post will be Published on The Website, and Donors Will Then Start Contact You.
+            <div class="simple-text"> The Post will be Published on The Website, and Donors Will Then Start Contact You Via Your Email.
             </div>
         </div>
-
         <div class="post">
             <div class="container">
                 <div class="NewPost">
                     <h2>New Post</h2>
                 </div>
-
                 <%
             if (session.getAttribute("CurrentUser") == null){%>
                 <div class="hideCreation">
                     <h1>You Are Not Authorized to Create a Post</h1>
                     <h4>You Should <a href="">Sign up</a> to Create a Post, or <a href="">login</a> if You Already Have an Account.</h1>
                 </div>
-
                 <%
                     } else { 
                 %>
-
                 <form action="View_Post.jsp" method="post" id="postForm">
                     <div class="textField">
                         <label class="Label">City</label>
@@ -65,17 +61,13 @@
                         <input type="text" name="hospitalName" id="hospitalName" placeholder="i.e. KAU Hospital" required>
                         <small>Error Messsage</small>
                     </div>
-
                     <div class="row2">
                         <label class="Label">Post Body <span>(Optional)</span></label>
                         <textarea name="postBody" id="postBody" placeholder="Post Length Shouldn't Exceed 140 Letters"></textarea>
                         <small>Error Messsage</small>
-
                     </div>
-
                     <div class="dropdownMenu second-drop">
                         <label class="Label">Post Body <span>(Optional)</span></label>
-
                         <select id="donationType" name="donationType" required>
                             <option selected disabled></option>
                             <option value="Whole Blood">Whole blood</option>
@@ -83,7 +75,6 @@
                             <option value="Plasma">Plasma</option>
                         </select>
                     </div>
-
                     <div class="textField2 dropdownMenu">
                         <label class="Label">Blood Type</label>
                         <select id="BloodType" name="BloodType" required>
@@ -98,27 +89,17 @@
                             <option value="O-">O-</option>
                         </select>
                     </div>
-                    <%
-        String postFilled = "Filled";
-        session.setAttribute("postFilled", postFilled);
-                    %>
-
+                    <input type="text" name="hiddenInput" id="hiddenInput" hidden  value="">
+                    
                     <div class="buttons">
                         <button type="submit">Create</button>
                         <button type="reset">Clear</button>
                     </div>
-
                 </form>
-
                 <%
                     }  
                 %>
-
             </div>
         </div>
-
-
-
     </body>
-
 </html>

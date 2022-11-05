@@ -420,15 +420,16 @@ li input {
 }
 
 .logo{
-    right: 480px;
-    position: relative;
+    right: 90%;
+    position: absolute;
+    margin-top: -10px;
 }
 /*---------------------------------*/
 .topnav img{
     float: left;
     padding: 1px 1px;
-    height: 40px;
-    margin-top: 20px;
+    /*height: 40px;*/
+    /*margin-top: 20px;*/
 }
 
 .topnav {
@@ -439,17 +440,20 @@ li input {
     margin-top: -1px;
 }
 .accountPic {
+    float: left;
+    padding: 1px 1px;
+    height: 40px;
+    margin-top: 20px;
     font-family: "Times New Roman", Times, serif;
     border-radius: 50px;
     border: none;
-    padding: 5px 15px;
+    /*padding: 5px 15px;*/
     display: inline-block;
     margin-top: 15px;
-    margin-left: 120px;
+    margin-left: 320px;
     cursor: pointer;
 }
 
 .accountPic:hover {
     background-color: #FFE5E5
 }
-
