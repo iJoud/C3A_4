@@ -18,14 +18,14 @@
     </head>
     <body>
         <div class="topnav">
-            <img id="logo" src="Logo.jpg" alt="logo">
-            <a href="Index.html">Home</a>
-            <a href="process.html">Donation Requests</a>
-            <a href="RequirmentQuiz.html">Search for Donors</a>
-            <a href="book.html">About Us</a>
+           <img id="logo" src="Images/Logo.jpg" alt="logo">
+                <a href="Home.jsp">Home</a>
+                <a href="View_Post.jsp">Donation Requests</a>
+                <a href="Create_Post.jsp">Search for Donors</a>
+                <a href="book.html">About Us</a>
+              
 
             <%
-
                 String username = request.getParameter("username");
                 String password = request.getParameter("password");
                 String email = request.getParameter("email");
