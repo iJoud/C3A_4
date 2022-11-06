@@ -1,0 +1,210 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Nov 2, 2022, 7:53:09 AM
+    Author     : manar
+*/
+
+#logo {
+    width: 120px;
+    height: 120px;
+    margin-top: -35px;
+    margin-left: 35px;
+}
+
+.topnav button{
+    background-color: #FC7091;
+    border-radius: 15px;
+    border: none;
+    float: right;
+    font-family: "Times New Roman", Times, serif;
+    color: white;
+    display: inline-block;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 500;
+    height: 38px;
+    width:140px;
+    margin: 10px;
+    padding: 10px 16px;
+    text-align: center;
+    text-decoration: none;
+    position:relative;
+    top:15px;
+}
+
+.topnav a {
+    float: left;
+    color: #EF4D64;
+    text-align: center;
+    padding: 18px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    position:relative;
+    top:15px;
+    left:90px;
+
+}
+
+.topnav a:hover {
+    color: black;
+}
+
+
+.topnav img{
+    float: left;
+    padding: 10px 10px;
+    height: 40px;
+}
+
+.topnav {
+    overflow: hidden; 
+}
+
+.topnav a:active{
+  text-decoration: underline;
+}
+.section1 {
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+}
+
+.image{
+	position: relative;
+    width: 700px;
+    height: 600px;
+   float:right;
+   top: 110px;
+	
+}
+
+
+h1 {
+ position: absolute;
+ top:30%;
+ left:90px;
+ font-size: 3em;
+  font-family: "Montserrat Medium";
+  max-width: 30ch;
+  color:#7d437a;
+  text-align: center;
+  transform: scale(0.94);
+  animation: scale 3s forwards cubic-bezier(0.5, 1, 0.89, 1);
+ 
+}
+@keyframes scale {
+  100% {
+    transform: scale(1);
+  }
+}
+
+span {
+  display: inline-block;
+  opacity: 0;
+  filter: blur(4px);
+}
+
+span:nth-child(1) {
+  animation: fade-in 0.8s 0.1s forwards cubic-bezier(0.11, 0, 0.5, 0);
+}
+
+span:nth-child(2) {
+  animation: fade-in 0.8s 0.2s forwards cubic-bezier(0.11, 0, 0.5, 0);
+}
+
+span:nth-child(3) {
+  animation: fade-in 0.8s 0.3s forwards cubic-bezier(0.11, 0, 0.5, 0);
+}
+
+span:nth-child(4) {
+  animation: fade-in 0.8s 0.4s forwards cubic-bezier(0.11, 0, 0.5, 0);
+}
+
+span:nth-child(5) {
+  animation: fade-in 0.8s 0.5s forwards cubic-bezier(0.11, 0, 0.5, 0);
+}
+
+span:nth-child(6) {
+  animation: fade-in 0.8s 0.6s forwards cubic-bezier(0.11, 0, 0.5, 0);
+}
+
+
+
+@keyframes fade-in {
+  100% {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+p{
+ position: absolute;
+ top:50%;
+ left:120px;
+ font-size: 2em;
+ font-family: "Montserrat Medium";
+ max-width: 35ch;
+ color:#8D8D8D;
+ text-align: center;
+	
+}
+
+.image2{
+	position: absolute;
+    width: 400px;
+    height: 90px;
+    left:160px;
+    top:78%;
+
+	
+}
+.Section{
+	 min-height: 50vh;
+     display: flexbox;
+	 top:90%;
+	 position: absolute;
+	
+}
+.Section h2 {
+ position: relative;
+ left:140px;
+ font-size: 3.5em;
+ font-family: "Montserrat Medium"; 
+ color:#7d437a;
+ text-align: center;
+
+ 
+}
+.Section img{
+	position: relative;
+   left:10px;
+  top:10px;
+	
+	
+}
+.Section button{
+    background-color: #FC7091;
+    border-radius: 15px;
+    border: none;
+    float: right;
+    font-family: "Times New Roman", Times, serif;
+    color: white;
+    display: inline-block;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 500;
+    height: 43px;
+    width:160px;
+    margin: 10px;
+    padding: 10px 16px;
+    text-align: center;
+    text-decoration: none;
+    position:relative;
+   
+}

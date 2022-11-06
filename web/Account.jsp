@@ -4,14 +4,15 @@
     Author     : Elaf
 --%>
 
+<%@page import="java.sql.ResultSet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 
     <head>
-        <title>Sign up Form</title>
+        <title>Account</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="SignupStyle.css" rel="stylesheet"/>
+        <link href="AccountStyle.css" rel="stylesheet"/>
     </head>
 
     <body>
@@ -21,55 +22,61 @@
             <a href="process.html">Donation Requests</a>
             <a href="RequirmentQuiz.html">Search for Donors</a>
             <a href="book.html">About Us</a>
-            <button onclick="location.href='login.jsp'" class="btn" type="button">Login</button>
-            <button class="sign" type="button">Sign up</button>
+
         </div>
 
-        <div> 
-            <p id="welcome">Create new account<span id="dot">.</span> </p> 
-            <p id="already">Already a member? <a href="login.jsp"> Login</a> </p> 
-        </div> 
+        <%
+            String username = request.getParameter("username");
+            String password = request.getParameter("password");
+            String email = request.getParameter("email");
+            String id = request.getParameter("id");
+            String phoneNumber = request.getParameter("phoneNumber");
+            String birthdate = request.getParameter("birthdate");
+            String bloodType = request.getParameter("bloodType");
+
+
+        %>
 
 
         <div class="login-box">
-            <h2>Sign Up</h2>
+            <h2>Account</h2>
             <div class="Form-Message-Error"> </div> 
-            <form name="AccountForm" action="AccountCreation.jsp" mathod="POST">
+            <form name="Account" action="Update.jsp" mathod="POST">
                 <div class="user-box1">
-                    <input type="text" name="username" required maxlength="30">
+                    <input type="text" name="username" required maxlength="30" value="<%=username%>">
                     <label>Username</label>
-                      <div class="Form-Input-Error"> </div> 
+                    <div class="Form-Input-Error"> </div> 
                 </div>
 
                 <div class="user-box1">
-                    <input type="password" name="password"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+                    <input type="password" name="password"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" value="<%=password%>">
                     <label>Password</label>
-                     <div class="Form-Input-Error"> </div> 
+                    <div class="Form-Input-Error"> </div> 
                 </div>
 
                 <div class="user-box1">
-                    <input type="email" name="email" maxlength="50" required> 
+                    <input type="email" name="email" maxlength="50" value="<%=email%>"> 
                     <label>Email</label>
-                     <div class="Form-Input-Error"> </div> 
+                    <div class="Form-Input-Error"> </div> 
                 </div>
 
                 <div class="user-box1">
-                    <input type="text" name="id" pattern="[0-9]{10}" required > 
+                    <input type="text" name="id" pattern="[0-9]{10}" value="<%=id%>" > 
                     <label>National ID</label> 
-                     <div class="Form-Input-Error"> </div> 
+                    <div class="Form-Input-Error"> </div> 
                 </div>
 
 
                 <div class="user-box1">
-                    <input type="tel" name="phoneNumber" pattern="(05)?[0,5,3,9,4,6][0-9]{7}" required>
+                    <input type="tel" name="phoneNumber" pattern="(05)?[0,5,3,9,4,6][0-9]{7}" value="<%=phoneNumber%>">
                     <label>Phone number</label>
-                     <div class="Form-Input-Error"> </div> 
+                    <div class="Form-Input-Error"> </div> 
                 </div>
 
 
                 <div>
                     <label class="Btype">Birthday </label>
-                    <input type="date" id="birthday" name="birthdate">
+                    <input type="date" id="birthday" name="birthdate" value="<%=birthdate%>">
                 </div> 
                 <br/> 
                 <div> 
@@ -84,7 +91,7 @@
                         <option value="AB-">AB-</option>  
                         <option value="O+">O+</option>		
                         <option value="O-">O-</option>			
-                        <option value="Type" selected="selected">Type</option>    
+                        <option value="<%=bloodType%>" selected="selected">Type</option>    
                     </select> 
                 </div> 
 
@@ -96,45 +103,18 @@
                         <span></span>
                         <span></span>
 
-                        <input id="dis" type="submit" name="sign up" value="Submit"/>
+                        <input id="dis" type="submit" name="sign up" value="Update"/>
                     </a>
                 </div>
             </form>
         </div>
 
-        <div>
-            <img id="homepagephoto" src="Homepage.png" alt="homepage"/>
-        </div> 
 
         <div class="signature"> 
             <br/>
         </div>  
 
 
-        <script>
-
-
-            const userInput = document.querySelectorAll("input");
-
-            const label = document.querySelectorAll("label");
-
-
-
-            for (let index = 0; index < userInput.length; index++) {
-                const input = userInput[index];
-                input.addEventListener('input', function () {
-                    if (input.value.length > 0) {
-
-                        label[index].style.top = "-20px";
-                    } else if (input.value.length == 0 && label[index].style.top == "-20px") {
-                        label[index].style.top = "0";
-
-                    }
-                });
-
-            }
-
-        </script>
 
     </body> 
 </html>
