@@ -11,12 +11,12 @@ const hospital = document.getElementById('hospitalName');
 const postBody = document.getElementById('postBody');
 
 
-
-
 form.addEventListener('submit', e => {
     // console.log(checkInputs())
     if (checkInputs() === false) {
         e.preventDefault();
+    }else{
+        document.getElementById('hiddenInput').value = "filled";
     }
 });
 

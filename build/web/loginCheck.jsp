@@ -10,16 +10,16 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>login information check</title>
     </head>
     <body>
         <%
 
-            String username = request.getParameter("UserName");
-            String password = request.getParameter("Password");
+            String username = request.getParameter("username");
+            String password = request.getParameter("password");
 
-            if (username != null && username.length() >= 4) {
-                if (password != null && password.length() >= 4) {
+            if (username != null ) {
+                if (password != null ) {
 
                     Database.DatabaseConnection connection = new Database.DatabaseConnection();
                     ResultSet rs = connection.validateUsersinDB(username, password);
@@ -31,19 +31,32 @@
                         // to use it when adding posts
                         session.setAttribute("userID", rs.getString("id"));
                         // to use it in other pages
-                        session.setAttribute("CurrentUser", request.getParameter("UserName"));
-                        
+                        session.setAttribute("CurrentUser", request.getParameter("username"));
                         response.sendRedirect("Home.jsp");
 
                     } else {
-                        out.print("You are unauthorized user");
+                        %>
+                        <script>
+                           alert("You do not have an account") ;
+                           window.location.href='login.jsp'; 
+                        </script>
+                      
+                        <%
                     }
                 } else {
-                    out.print("Please enter correct password<br>");
-                    out.print("<a href='login.jsp'>Login page</a> |");
-                }
+                    %>
+                     <script>
+                           alert("Please enter correct password") ;
+                           window.location.href='login.jsp'; 
+                        </script>
+                   
+               <% }
             } else {
-                out.print("Please enter correct data<br>");
-                out.print("<a href='login.jsp'>Login page</a> |");
-            }
-        %>
+%>
+                <script>
+                           alert("Please enter correct data") ;
+                           window.location.href='login.jsp'; 
+                        </script>
+     <%    
+}
+       %>
