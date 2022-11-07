@@ -10,25 +10,25 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Log in</title>
-        <link href="login.css" rel="stylesheet"/>
-        <link href="pagestyle.css" rel="stylesheet"/>
+        <link href="CSS\login.css" rel="stylesheet"/>
+        <link href="CSS\pagestyle.css" rel="stylesheet"/>
     </head>
     <body>
         <header>
             <nav class="topnav">
-                <img id="logo" src="Logo.jpg" alt="logo">
-                <a href="Index.html">Home</a>
-                <a href="process.html">Donation Requests</a>
-                <a href="RequirmentQuiz.html">Search for Donors</a>
-                <a href="book.html">About Us</a>
-                <button class="btn" type="button">Login</button>
-                <button class="btn" type="button">Sign up</button>
+                <img id="logo" src="Images/Logo.jpg" alt="logo">
+               <a href="Home.jsp">Home</a>
+                <a href="View_Post.jsp">Donation Requests</a>
+                <a href="Create_Post.jsp">Search for Donors</a>
+                <a href="AboutUs.jsp">About Us</a>
+                <a href="Instraction.jsp">Donation Instraction</a>
+              
             </nav>
         </header>
         <!-- ---------------  Body section  ---------------  -->
         <div class="section1">
-            <img class="loginimg" src="login.png" alt="user" /> 
-       <section class="login" id='login'>
+            <img class="loginimg" src="Images\login.png" alt="user" /> 
+        <section class="login" id='login'>
                 <div class="head">
                     <h1 >Welcome, login to your account</h1>
                 </div>
@@ -36,14 +36,14 @@
                 <div class='form'>
                     <form name="login" action="loginCheck.jsp" method="POST">
                        
-                        <input type="text" placeholder='Username' class='text' name="UserName" required /><br>
-                        <input type="password" placeholder='••••••••••••••' class='password'  name="Password" required /><br><br>
+                        <input type="text" placeholder='username' class='text' id='username' name="username" maxlength="30" required /><br>
+                        <input type="password" placeholder='••••••••••••••' class='password' id="password" name="password"  title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required /><br><br>
                         <input type="radio" id="remmember" name="remmember" value="1"/><label style="font-size: 20px;"for="remmember">Remember me</label>
                         <a href="#" class='forgot'>Forgot password?</a>
                         <br><br><br><br>
 
                         <input class="btn-login" type="submit" value="Login" name="Submit" />
-                        <p id="account"> Don't have an account? <a href="">Sign up </a> </p> 
+                        <p id="account"> Don't have an account? <a href="SignUp.jsp">Sign up </a> </p> 
 
                     </form>
                 </div>
@@ -58,14 +58,26 @@
 
             <div class="footer-left">
                 <p class="footer-links">
-                    <a href="Index.html">Home</a>
-                    <a href="process.html">Donation Requests</a>
-                    <a href="RequirmentQuiz.html">Search for Donors</a>
-                    <a href="book.html">About Us</a>	   
+                   <a href="Home.jsp">Home</a>
+                <a href="View_Post.jsp">Donation Requests</a>
+                <a href="Create_Post.jsp">Search for Donors</a>
+                <a href="AboutUs.jsp">About Us</a>
+                <a href="Instraction.jsp">Donation Instraction</a> 
                 </p>
 
 
             </div>
+
+
         </footer>
+
+        
+        
+        
+        
+        
+        
+        
+        
     </body>
 </html>

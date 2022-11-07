@@ -9,31 +9,32 @@
 <html>
     <head>
         <link rel="stylesheet" href="CSS/Create_Post.css">
+        <link rel="stylesheet" href="CSS/pagestyle.css">
         <script defer src="JavaScript/Create_Post.js"></script>
     </head>
 
     <body>
 
         <div class="topnav">
-            <img src="Images/Logo.jpg" alt="logo" height="80" width="100" class="logo">
-            <a href="Index.html">Home</a>
-            <a href="process.html">Donation Requests</a>
-            <a href="RequirmentQuiz.html">Search for Donors</a>
-            <a href="book.html">About Us</a>
+            <img src="Images/Logo.jpg" alt="logo"id="logo">
+            <a href="Home.jsp">Home</a>
+            <a href="View_Post.jsp">Donation Requests</a>
+            <a href="Create_Post.jsp">Search for Donors</a>
+            <a href="AboutUs.jsp">About Us</a>
+            <a href="Instraction.jsp">Donation Instraction</a>
 
-            <% if (session.getAttribute("CurrentUser") == null){ %>
-            <button class="btn" type="button">Login</button>
-            <button class="btn" type="button" >Sign up</button>
-            
-            <% } else { %>
-            <img src="account.png" class="accountPic" alt="pic"/>  
+            <% if (session.getAttribute("CurrentUser") == null) { %>
+            <button class="btn" type="button" onclick="window.location.href = 'login.jsp'">Login</button>
+            <button class="btn" type="button" onclick="window.location.href = 'SignUp.jsp'">Sign up</button>
+            <% } else {%>
+            <img src="Images/account.png" class="accountPic" alt="pic"/>  
             <a href=Account.html" class="wel">Welcome <%=session.getAttribute("CurrentUser")%> </a>
             <% } %>
-            
+
         </div>
         <div class="Header">
             <h1>Create Blood Donation Request Post</h1>
-            <div class="simple-text"> The Post will be Published on The Website, and Donors Will Then Start Contact You.
+            <div class="simple-text"> The Post will be Published on The Website, and Donors Will Then Start Contact You Via Your Email.
             </div>
         </div>
 
@@ -44,14 +45,14 @@
                 </div>
 
                 <%
-            if (session.getAttribute("CurrentUser") == null){%>
+                    if (session.getAttribute("CurrentUser") == null) {%>
                 <div class="hideCreation">
                     <h1>You Are Not Authorized to Create a Post</h1>
-                    <h4>You Should <a href="">Sign up</a> to Create a Post, or <a href="">login</a> if You Already Have an Account.</h1>
+                    <h4>You Should <a href="SignUp.jsp">Sign up</a> to Create a Post, or <a href="login.jsp">login</a> if You Already Have an Account.</h1>
                 </div>
 
                 <%
-                    } else { 
+                } else {
                 %>
 
                 <form action="View_Post.jsp" method="post" id="postForm">
@@ -98,10 +99,7 @@
                             <option value="O-">O-</option>
                         </select>
                     </div>
-                    <%
-        String postFilled = "Filled";
-        session.setAttribute("postFilled", postFilled);
-                    %>
+                    <input type="text" name="hiddenInput" id="hiddenInput" hidden  value="">
 
                     <div class="buttons">
                         <button type="submit">Create</button>
@@ -111,12 +109,30 @@
                 </form>
 
                 <%
-                    }  
+                    }
                 %>
 
             </div>
         </div>
+        <br /><br /><br /><br /><br /><br /><br />
+        <br /><br /><br /><br /><br /><br /><br />
 
+        <footer class="footer-distributed">
+
+            <div class="footer-left">
+                <p class="footer-links">
+                    <a href="Home.jsp">Home</a>
+                    <a href="View_Post.jsp">Donation Requests</a>
+                    <a href="Create_Post.jsp">Search for Donors</a>
+                    <a href="AboutUs.jsp">About Us</a>
+                    <a href="Instraction.jsp">Donation Instraction</a> 
+                </p>
+
+
+            </div>
+
+
+        </footer>
 
 
     </body>

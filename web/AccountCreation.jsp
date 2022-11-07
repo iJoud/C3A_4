@@ -17,53 +17,48 @@
 
     </head>
     <body>
-        <div class="topnav">
-            <img id="logo" src="Logo.jpg" alt="logo">
-            <a href="Index.html">Home</a>
-            <a href="process.html">Donation Requests</a>
-            <a href="RequirmentQuiz.html">Search for Donors</a>
-            <a href="book.html">About Us</a>
 
-            <%
+        <%
+            String username = request.getParameter("username");
+            String password = request.getParameter("password");
+            String email = request.getParameter("email");
+            String id = request.getParameter("id");
+            String phoneNumber = request.getParameter("phoneNumber");
+            String birthdate = request.getParameter("birthdate");
+            String bloodType = request.getParameter("bloodType");
 
-                String username = request.getParameter("username");
-                String password = request.getParameter("password");
-                String email = request.getParameter("email");
-                String id = request.getParameter("id");
-                String phoneNumber = request.getParameter("phoneNumber");
-                String birthdate = request.getParameter("birthdate");
-                String bloodType = request.getParameter("bloodType");
+            Database.DatabaseConnection connection = new Database.DatabaseConnection();
 
-                // to use it when adding posts
-                session.setAttribute("userID", id);
-                // to use it in other pages
-                session.setAttribute("CurrentUser", request.getParameter("username"));
-                
-                Database.DatabaseConnection connection = new Database.DatabaseConnection();
+            if (connection != null) {
+                int isInserted = connection.addInfo(username, password, email, id, phoneNumber, birthdate, bloodType);
 
-                if (connection != null) {
-                    int isInserted = connection.addInfo(username, password, email, id, phoneNumber, birthdate, bloodType);
+                if (isInserted !=-1) {
+                    // to use it when adding posts
+                    session.setAttribute("userID", id);
+                    // to use it in other pages
+                    session.setAttribute("CurrentUser", request.getParameter("username"));
 
-                    if (isInserted > 0) {
-            %>
 
-            <img src="account.png" class="accountPic" alt="pic"/>  
-            <a href=Account.html" class="wel">Welcome <%=username%> </a>
-         </div>
-           
-            <div Style="height: 70vh; display: flex; flex-direction: column; align-items: center; justify-content: center;">      
-                <h2> Hi <%=username%> </h2> 
-                <p> Your account have been created successfully! </p> 
-            </div> 
+        %>
 
-            <%}
+        <script>
+                alert("Hi" + <%=username%> + "Your account have been created successfully!");
+                window.location.href = 'Home.jsp';
+        </script>
 
-                } else {
-                    out.print("<h1> Connection is null <h1>");
-                }
-            %> 
 
-        
-            <!--put the code here-->
+        <%} else {
+                out.print("A problem has occurred, please re-create your account");
+            }
+        } else {
+        %> 
+        <script>
+            alert("A problem has occurred, please re-create your account");
+            window.location.href = 'SignUp.jsp';
+        </script>                    
+
+        <%        }
+        %> 
+
     </body>
 </html>

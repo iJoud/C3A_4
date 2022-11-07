@@ -11,53 +11,60 @@
     <head>
         <title>Sign up Form</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="SignupStyle.css" rel="stylesheet"/>
+        <link href="CSS\SignupStyle.css" rel="stylesheet"/>
+        <link href="CSS\pagestyle.css" rel="stylesheet"/>
     </head>
 
     <body>
         <div class="topnav">
-            <img id="logo" src="Logo.jpg" alt="logo">
-            <a href="Index.html">Home</a>
-            <a href="process.html">Donation Requests</a>
-            <a href="RequirmentQuiz.html">Search for Donors</a>
-            <a href="book.html">About Us</a>
-            <button class="btn" type="button">Login</button>
-            <button class="btn" type="button">Sign up</button>
+            <img id="logo" src="Images/Logo.jpg" alt="logo">
+            <a href="Home.jsp">Home</a>
+            <a href="View_Post.jsp">Donation Requests</a>
+            <a href="Create_Post.jsp">Search for Donors</a>
+            <a href="AboutUs.jsp">About Us</a>
+            <a href="Instraction.jsp">Donation Instraction</a>
+
         </div>
 
         <div> 
             <p id="welcome">Create new account<span id="dot">.</span> </p> 
-            <p id="already">Already a member? <a href=""> Login</a> </p> 
+            <p id="already">Already a member? <a href="login.jsp"> Login</a> </p> 
         </div> 
 
 
         <div class="login-box">
             <h2>Sign Up</h2>
-            <form name="AccountForm" action="AccountCreation.jsp" mathod="POST">
+            <div class="Form-Message-Error"> </div> 
+            <form name="AccountForm" action="AccountCreation.jsp" method="POST">
                 <div class="user-box1">
                     <input type="text" name="username" required maxlength="30">
                     <label>Username</label>
+                    <div class="Form-Input-Error"> </div> 
                 </div>
 
                 <div class="user-box1">
                     <input type="password" name="password"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
                     <label>Password</label>
+                    <div class="Form-Input-Error"> </div> 
                 </div>
 
                 <div class="user-box1">
                     <input type="email" name="email" maxlength="50" required> 
                     <label>Email</label>
+                    <div class="Form-Input-Error"> </div> 
                 </div>
 
                 <div class="user-box1">
                     <input type="text" name="id" pattern="[0-9]{10}" required > 
                     <label>National ID</label> 
+                    <div class="Form-Input-Error"> </div> 
                 </div>
 
 
                 <div class="user-box1">
                     <input type="tel" name="phoneNumber" pattern="(05)?[0,5,3,9,4,6][0-9]{7}" required>
                     <label>Phone number</label>
+                    <div class="Form-Input-Error"> </div> 
                 </div>
 
 
@@ -90,20 +97,29 @@
                         <span></span>
                         <span></span>
 
-                        <input id="dis" type="submit" name="sign up" value="Submit"/>
+                        <input id="dis" type="submit" name="signup" value="Submit" />
                     </a>
                 </div>
             </form>
         </div>
 
         <div>
-            <img id="homepagephoto" src="Homepage.png" alt="homepage"/>
+            <img id="homepagephoto" src="Images\Homepage.png" alt="homepage"/>
         </div> 
 
-        <div class="signature"> 
-            <br/>
-        </div>  
+        <footer class="footer-distributed">
+            <div class="footer-left">
+                <p class="footer-links">
+                    <a href="Home.jsp">Home</a>
+                    <a href="View_Post.jsp">Donation Requests</a>
+                    <a href="Create_Post.jsp">Search for Donors</a>
+                    <a href="AboutUs.jsp">About Us</a>
+                    <a href="Instraction.jsp">Donation Instraction</a>  
+                </p>
 
+
+            </div>
+        </footer>
 
         <script>
 
@@ -126,6 +142,23 @@
                     }
                 });
 
+            }
+
+
+
+            function ValidateEmail(enteredemail) {
+
+                var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+
+                if (enteredemail.value.match(mailformat)) {
+                    return true;
+                } else {
+
+                    alert("You have entered an invalid email address!"); //The pop up alert for an invalid email address
+                    document.loginform.email.focus();
+                    return false;
+                }
             }
 
         </script>
